@@ -6,4 +6,10 @@ ENV NVIDIA_VISIBLE_DEVICES \
 ENV NVIDIA_DRIVER_CAPABILITIES \
     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
-    
+RUN apt-get update
+RUN apt-get install -y git 
+RUN git clone -b v1.14.0 https://github.com/PX4/PX4-Autopilot.git --recursive
+
+WORKDIR /PX4-Autopilot
+
+RUN make px4_sitl 

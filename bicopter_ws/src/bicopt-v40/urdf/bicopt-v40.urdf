@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="bicopt-v40">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00297274481459139 0.0013867901012858 0.0950011762372594"
+        rpy="0 0 0" />
+      <mass
+        value="0.390996113881448" />
+      <inertia
+        ixx="0.000191850447904884"
+        ixy="4.02647393443208E-07"
+        ixz="-7.71288734446143E-06"
+        iyy="0.000465505844687141"
+        iyz="-7.27837333265296E-14"
+        izz="0.000526809440280392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.968627450980392 0 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="ccw-servo">
+    <inertial>
+      <origin
+        xyz="-4.86086066012192E-06 -0.00336707439335265 0.0217207271485684"
+        rpy="0 0 0" />
+      <mass
+        value="0.0318045069671944" />
+      <inertia
+        ixx="4.59202022357385E-06"
+        ixy="-7.94305325346753E-11"
+        ixz="-1.03122271201353E-09"
+        iyy="3.56948252855062E-06"
+        iyz="1.17655827362175E-07"
+        izz="5.80438858687452E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/ccw-servo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.823529411764706 0.823529411764706 0.823529411764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/ccw-servo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ser0"
+    type="revolute">
+    <origin
+      xyz="0.010312 0.15468 0.15176"
+      rpy="0.018488 0 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="ccw-servo" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="1"
+      upper="-1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ccw-mot">
+    <inertial>
+      <origin
+        xyz="7.18634146225708E-06 -1.17649044532042E-05 0.0177667393625997"
+        rpy="0 0 0" />
+      <mass
+        value="0.0136327983132844" />
+      <inertia
+        ixx="4.42921304532144E-06"
+        ixy="9.45518197377311E-10"
+        ixz="4.79660685898315E-09"
+        iyy="4.4279909965521E-06"
+        iyz="-2.84067259946372E-08"
+        izz="8.68180630359846E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/ccw-mot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.847058823529412 0.0588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/ccw-mot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mot0"
+    type="continuous">
+    <origin
+      xyz="0 -0.004 0.0425"
+      rpy="0 0 0" />
+    <parent
+      link="ccw-servo" />
+    <child
+      link="ccw-mot" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="cw-servo">
+    <inertial>
+      <origin
+        xyz="4.24230537866138E-06 0.00321017076914662 0.0206756951812673"
+        rpy="0 0 0" />
+      <mass
+        value="0.0318045056970255" />
+      <inertia
+        ixx="4.59503749035816E-06"
+        ixy="1.4027752214539E-09"
+        ixz="7.07895842313799E-10"
+        iyy="3.56646507527187E-06"
+        iyz="-1.14994116476257E-07"
+        izz="5.80438858640768E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/cw-servo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.823529411764706 0.823529411764706 0.823529411764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/cw-servo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ser1"
+    type="revolute">
+    <origin
+      xyz="0.010312 -0.14923 0.15181"
+      rpy="-0.018488 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="cw-servo" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1"
+      upper="1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="cw-mot">
+    <inertial>
+      <origin
+        xyz="-4.3950283208638E-07 9.3302640815085E-06 0.0178468185267083"
+        rpy="0 0 0" />
+      <mass
+        value="0.0136338063464623" />
+      <inertia
+        ixx="4.42777899513538E-06"
+        ixy="6.06546533579956E-11"
+        ixz="1.00593112427468E-08"
+        iyy="4.42786746354928E-06"
+        iyz="2.69764886542619E-08"
+        izz="8.67975979284156E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/cw-mot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bicopt-v40/meshes/cw-mot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mot1"
+    type="continuous">
+    <origin
+      xyz="0 0.0038292 0.041455"
+      rpy="0 0 0" />
+    <parent
+      link="cw-servo" />
+    <child
+      link="cw-mot" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="100"
+      velocity="100" />
+  </joint>
+</robot>
