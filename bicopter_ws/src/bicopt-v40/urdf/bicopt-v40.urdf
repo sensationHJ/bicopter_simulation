@@ -154,10 +154,26 @@
       link="ccw-mot" />
     <axis
       xyz="0 0 -1" />
-    <limit
-      effort="100"
-      velocity="100" />
   </joint>
+  <gazebo>
+      <plugin name="mot_0" filename="librotors_gazebo_motor_model.so">
+        <robotNamespace>bicopter</robotNamespace>
+        <jointName>mot0</jointName>
+        <linkName>ccw-mot</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>838</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.016</momentConstant>
+        <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+        <motorNumber>0</motorNumber>
+        <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+        <rollingMomentCoefficient>0.000001</rollingMomentCoefficient>
+        <motorSpeedPubTopic>motor_speed/mot0</motorSpeedPubTopic>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      </plugin>
+  </gazebo>
   <link
     name="cw-servo">
     <inertial>
